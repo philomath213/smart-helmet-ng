@@ -112,74 +112,31 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let d of data">
                 <th scope="row">
                   <div class="media align-items-center">
                     <div class="media-body">
-                      <span class="mb-0 text-sm">1</span>
+                      <span class="mb-0 text-sm">{{ d.helmet_id }}</span>
                     </div>
                   </div>
                 </th>
                 <td>
-                  <span class="badge badge-dot mr-4">
+                  <span *ngIf="d.is_removed" class="badge badge-dot mr-4">
                     <i class="bg-warning"></i> removed
                   </span>
-                </td>
-                <td>
-                    23
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">60%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right">
-                  <div ngbDropdown placement="bottom-right">
-                    <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                      <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                      <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                      <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">2</span>
-                    </div>
-                  </div>
-                </th>
-                <td>
-                  <span class="badge badge-dot">
+                  <span *ngIf="!d.is_removed" class="badge badge-dot mr-4">
                     <i class="bg-success"></i> wearing
                   </span>
                 </td>
                 <td>
-                    30
+                  {{ d.temperature }}
                 </td>
                 <td>
-                  <div class="d-flex align-items-center">
-                    <span class="mr-2">100%</span>
-                    <div>
-                      <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                      </div>
-                    </div>
-                  </div>
+                  {{ d.humidity }}
                 </td>
                 <td class="text-right">
-                  <div ngbDropdown  placement="bottom-right">
-                    <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>
+                  <div ngbDropdown placement="bottom-right">
+                    <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
                       <i class="fas fa-ellipsis-v"></i>
                     </a>
                     <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
