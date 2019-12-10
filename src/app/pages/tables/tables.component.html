@@ -90,6 +90,7 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Status</th>
+                <th scope="col">Collision</th>
                 <th scope="col">Temperature</th>
                 <th scope="col">Humidity</th>
                 <th scope="col"></th>
@@ -110,6 +111,14 @@
                   </span>
                   <span *ngIf="!d.is_removed" class="badge badge-dot mr-4">
                     <i class="bg-success"></i> wearing
+                  </span>
+                </td>
+                <td>
+                  <span *ngIf="d.collision" class="badge badge-dot mr-4">
+                    <i class="bg-warning"></i> danger
+                  </span>
+                  <span *ngIf="!d.collision" class="badge badge-dot mr-4">
+                    <i class="bg-success"></i> safe
                   </span>
                 </td>
                 <td>
