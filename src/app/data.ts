@@ -6,4 +6,5 @@ export class Data {
     // air_quality: number;
     temperature: number;
     humidity: number;
+    offline: boolean;
 }

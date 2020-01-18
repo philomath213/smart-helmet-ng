@@ -14,6 +14,7 @@ export class DataService {
   ) { }
 
   getData(): Observable<Data[]> {
+    // API URL
     return this.http.get<Data[]>("http://127.0.0.1:5000/latest-data")
   }
 }

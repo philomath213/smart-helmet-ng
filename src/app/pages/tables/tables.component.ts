@@ -18,6 +18,7 @@ export class TablesComponent implements OnInit {
   humidity_mean: number = null;
   removed_helmets: number = null;
   collisions: number = null;
+  offline: number = null;
 
   constructor(
     private dataService: DataService,
@@ -40,6 +41,15 @@ export class TablesComponent implements OnInit {
 
       this.removed_helmets = data.filter(d => d.is_removed).length;
       this.collisions = data.filter(d => d.collision).length;
+      
+      this.data.forEach((element, i) => {
+        var now = Date.now();
+        var d = new Date(element.datetime)
+        var dif = now - d.getTime() - 3600000;
+        element.offline = dif / 1000 > 5;
+      });
+      
+      this.offline = data.filter(d => d.offline).length;
     });
   }
 }
